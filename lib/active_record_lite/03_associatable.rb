@@ -19,8 +19,11 @@ class AssocOptions
 end
 
 class BelongsToOptions < AssocOptions
-  def initialize(name, options = {})
-    # ...
+  def initialize(name, options[:class_name] = self.to_s.singularize.camelcase, 
+			options[:foreign_id] = self.to_s.underscore,
+			options[:primary_id] = self.id)
+			
+		p name
   end
 end
 
